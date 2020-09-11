@@ -1,9 +1,11 @@
 import React from 'react';
+import CalendarDay from './CalendaryDay';
 
-export default function App() {
-  return (
-    <div>
-      <p>CALENDAR COMPONENT</p>
-    </div>
-  );
+export default function Calendar() {
+    
+    return (
+        <div>
+            <CalendarDay/>
+        </div>
+    );
 }
