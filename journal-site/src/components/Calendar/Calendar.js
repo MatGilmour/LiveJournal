@@ -53,10 +53,10 @@ export default function Calendar() {
     };
 
     const daysOfWeek = () => {
-        const dateFormat = "ddd";
-        const days = [];
-        let startDate = startOfWeek(currentDate);
-        
+        const dateFormat = "EEEE";
+        const startDate = startOfWeek(currentDate);
+        let days = [];
+
         for (let i = 0; i < 7; i++) {
             days.push(
                 <div className="column col-center" key={i}>
