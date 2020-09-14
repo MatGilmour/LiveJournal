@@ -24,7 +24,7 @@ export default function Calendar() {
     }
 
     const header = () => {
-        const dateFormat = "mmmm yyyy";
+        const dateFormat = "LLLL yyyy";
 
         const nextMonth = () => {
             setCurrentDate(addMonths(currentDate, 1));
@@ -56,6 +56,7 @@ export default function Calendar() {
         const dateFormat = "ddd";
         const days = [];
         let startDate = startOfWeek(currentDate);
+        
         for (let i = 0; i < 7; i++) {
             days.push(
                 <div className="column col-center" key={i}>
