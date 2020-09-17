@@ -156,6 +156,3 @@ header {
   flex-basis: calc(100% / 7);
   width: calc(100% / 7);
 }
-.col-center {
-  text-align: center;
-}

@@ -12,9 +12,10 @@ import endOfWeek from 'date-fns/endOfWeek';
 import isSameMonth from 'date-fns/isSameMonth';
 import isSameDay from 'date-fns/isSameDay';
 import toDate from 'date-fns/toDate';
+import { parseWithOptions } from 'date-fns/fp';
 
 
-export default function Calendar() {
+export default function Calendar(props) {
 
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState(new Date())
@@ -24,7 +25,7 @@ export default function Calendar() {
     }
 
     const header = () => {
-        const dateFormat = "LLLL yyyy";
+        const dateFormat = "MMMM yyyy";
 
         const nextMonth = () => {
             setCurrentDate(addMonths(currentDate, 1));
@@ -54,9 +55,8 @@ export default function Calendar() {
 
     const daysOfWeek = () => {
         const dateFormat = "EEEE";
-        const startDate = startOfWeek(currentDate);
-        let days = [];
-
+        const days = [];
+        let startDate = startOfWeek(currentDate);
         for (let i = 0; i < 7; i++) {
             days.push(
                 <div className="column col-center" key={i}>
@@ -87,7 +87,7 @@ export default function Calendar() {
                             ? "disabled" : isSameDay(day, selectedDate)
                                 ? "selected" : ""}`}
                         key={day}
-                        onClick={() => onDateClick(toDate(cloneDay))}
+                        onClick={() => props.onChange(props.showCal) && props.newDate(selectedDate)}
                     >
                         <span className="number">{formattedDate}</span>
                         <span className="bg">{formattedDate}</span>
